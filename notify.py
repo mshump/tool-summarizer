@@ -13,7 +13,7 @@ def post_to_slack(webhook, message):
 
 def summarize_with_openai(text):
     response = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo",
         messages=[
             {
                 "role": "system",
