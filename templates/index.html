@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+  <title>Tool Summarizer</title>
+</head>
+<body>
+<h1>Registered Tools</h1>
+<ul>
+  {% for tool in tools %}
+    <li><strong>{{ tool.name }}</strong> — {{ tool.url }}</li>
+  {% endfor %}
+</ul>
+
+<h2>Add New Tool</h2>
+<form method="post">
+  <p>Name: <input name="name"></p>
+  <p>Changelog URL: <input name="url"></p>
+  <p>Slack Webhook: <input name="webhook"></p>
+  <p>Parser: <input name="parser" value="default"></p>
+  <p><input type="submit" value="Add Tool"></p>
+</form>
+</body>
+</html>

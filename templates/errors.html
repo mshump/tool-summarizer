@@ -1,0 +1,9 @@
+<!doctype html>
+<title>Error Log</title>
+<h1>Errors</h1>
+<ul>
+  {% for error in errors %}
+    <li><strong>{{ error.tool }}</strong> — {{ error.timestamp }}<br>
+    {{ error.error }}</li>
+  {% endfor %}
+</ul>

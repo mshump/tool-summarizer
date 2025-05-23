@@ -1,0 +1,11 @@
+<!doctype html>
+<title>Summaries</title>
+<h1>Past Summaries</h1>
+<ul>
+  {% for summary in summaries %}
+    <li><strong>{{ summary.tool }}</strong> — {{ summary.timestamp }}<br>
+    {{ summary.summary }}<br>
+    <a href="{{ summary.url }}" target="_blank">Read more</a>
+    </li>
+  {% endfor %}
+</ul>
