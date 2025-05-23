@@ -19,5 +19,11 @@
   <p>Parser: <input name="parser" value="default"></p>
   <p><input type="submit" value="Add Tool"></p>
 </form>
+
+<h2>Actions</h2>
+<form action="{{ url_for('run_summary') }}" method="post">
+    <button type="submit">Run Extract and Summarize</button>
+</form>
+
 </body>
 </html>

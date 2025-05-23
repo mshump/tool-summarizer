@@ -28,3 +28,10 @@ def index():
         save_tools(tools)
         return redirect("/")
     return render_template("index.html", tools=load_tools())
+
+@app.route("/run-summary", methods=["POST"])
+def run_summary():
+    from your_module import extract_and_summarize_all_tools
+    extract_and_summarize_all_tools()  # Implement this function to run for all tools
+    
+    return redirect("/")
