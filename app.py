@@ -31,7 +31,7 @@ def index():
 
 @app.route("/run-summary", methods=["POST"])
 def run_summary():
-    from your_module import extract_and_summarize_all_tools
-    extract_and_summarize_all_tools()  # Implement this function to run for all tools
+    from summarize import run_summary
+    run_summary()  # Implement this function to run for all tools
     
     return redirect("/")
