@@ -59,7 +59,5 @@ def run_summary():
             }
             save_cache(cache)
 
-        message = f"*🔍 {name} Summary:*
-{summary}
-<{url}|Read more>"
-        post_to_slack(webhook, message)
+message = f"*🔍 {name} Summary:*\n{summary}\n<{url}|Read more>"
+post_to_slack(webhook, message)
