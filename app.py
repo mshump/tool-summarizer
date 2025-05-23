@@ -30,8 +30,7 @@ def index():
     return render_template("index.html", tools=load_tools())
 
 @app.route("/run-summary", methods=["POST"])
-def run_summary():
-    from summarize import run_summary
-    run_summary()  # Implement this function to run for all tools
-    
+def run_summary_route():
+    from summarize import run_summary  # import your summarization function
+    run_summary()  # call the function that does the extraction + summarization
     return redirect("/")
