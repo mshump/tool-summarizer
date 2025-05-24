@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+#client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 def post_to_slack(webhook, message):
     response = requests.post(webhook, json={"text": message})
@@ -36,8 +36,11 @@ def summarize_with_openai(text):
 '''
         
 def summarize_with_huggingface(text):
+    api_token = os.getenv("HUGGINGFACE_API_TOKEN")
+    headers = {
+        "Authorization": f"Bearer {api_token}"
+    }
     api_url = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
-    headers = {"Authorization": f"Bearer YOUR_HUGGINGFACE_API_TOKEN"}
 
     response = requests.post(api_url, headers=headers, json={"inputs": text})
     if response.status_code == 200:
