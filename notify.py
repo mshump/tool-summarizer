@@ -11,6 +11,7 @@ def post_to_slack(webhook, message):
     response = requests.post(webhook, json={"text": message})
     return response.status_code == 200
 
+'''
 def summarize_with_openai(text):
     try:
         response = client.chat.completions.create(
@@ -31,4 +32,16 @@ def summarize_with_openai(text):
         return response.choices[0].message.content.strip()
     except Exception as e:
         print(f"OpenAI summarization failed: {e}")
+        return "⚠️ Summarization failed."
+'''
+        
+def summarize_with_huggingface(text):
+    api_url = "https://api-inference.huggingface.co/models/facebook/bart-large-cnn"
+    headers = {"Authorization": f"Bearer YOUR_HUGGINGFACE_API_TOKEN"}
+
+    response = requests.post(api_url, headers=headers, json={"inputs": text})
+    if response.status_code == 200:
+        return response.json()[0]['summary_text']
+    else:
+        print("HuggingFace error:", response.text)
         return "⚠️ Summarization failed."

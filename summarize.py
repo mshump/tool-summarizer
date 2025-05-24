@@ -4,7 +4,7 @@ from bs4 import BeautifulSoup
 from datetime import datetime, timedelta
 import hashlib
 import os
-from notify import post_to_slack, summarize_with_openai
+from notify import post_to_slack, summarize_with_huggingface #summarize_with_openai
 
 TOOLS_FILE = "tools.json"
 CACHE_FILE = "summarize_cache.json"
@@ -52,7 +52,8 @@ def run_summary():
         if content_hash in cache:
             summary = cache[content_hash]["summary"]
         else:
-            summary = summarize_with_openai(text[:4000])  # truncate for token limit
+            #summary = summarize_with_openai(text[:4000])  # truncate for token limit
+            summary = summarize_with_huggingface(text[:1000])
             cache[content_hash] = {
                 "summary": summary,
                 "timestamp": str(datetime.now())
