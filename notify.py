@@ -32,7 +32,7 @@ def summarize_with_openai(text):
         return response.choices[0].message.content.strip()
     except Exception as e:
         print(f"OpenAI summarization failed: {e}")
-        return "⚠️ Summarization failed."
+        return "⚠️ Summarization failed OA."
 '''
         
 def summarize_with_huggingface(text):
@@ -47,4 +47,4 @@ def summarize_with_huggingface(text):
         return response.json()[0]['summary_text']
     else:
         print("HuggingFace error:", response.text)
-        return "⚠️ Summarization failed."
+        return "⚠️ Summarization failed HF."
