@@ -6,5 +6,5 @@ services:
     startCommand: gunicorn app:app
     envVars:
       - #key: OPENAI_API_KEY
-        key: YOUR_HUGGINGFACE_API_TOKEN
+        key: HUGGINGFACE_API_TOKEN
         sync: false  # Set this in the Render dashboard manually
